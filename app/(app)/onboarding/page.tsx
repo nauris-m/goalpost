@@ -1,8 +1,11 @@
+import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/supabase/current-user';
 import { memberFromRow } from '@/lib/mappers/members';
 import { teamFromRow } from '@/lib/mappers/teams';
 import { OnboardingClient } from './onboarding-client';
+
+export const metadata: Metadata = { title: 'Welcome' };
 
 export default async function OnboardingPage() {
   const supabase = await createClient();

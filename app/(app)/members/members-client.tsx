@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { DashboardCard } from '@/components/dashboard/dashboard-card';
+import { MemberAvatar } from '@/components/shared/member-avatar';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -99,14 +100,7 @@ function MemberRow({ member, teamName, currentUser }: { member: MemberView; team
 
   return (
     <li className="flex items-center gap-3 px-5 py-3">
-      <span className="flex size-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-accent text-sm font-semibold text-accent-foreground">
-        {member.avatarUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={member.avatarUrl} alt={member.name} className="size-full object-cover" />
-        ) : (
-          member.initial
-        )}
-      </span>
+      <MemberAvatar name={member.name} initial={member.initial} avatarUrl={member.avatarUrl} />
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-2">
           <span className="truncate text-sm font-medium text-foreground">{member.name}</span>

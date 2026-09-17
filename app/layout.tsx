@@ -18,7 +18,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Goalpost',
+  title: { template: '%s · Goalpost', default: 'Goalpost' },
   description: 'Track team goals, period by period.',
 };
 

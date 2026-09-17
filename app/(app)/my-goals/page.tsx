@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/supabase/current-user';
 import { teamFromRow } from '@/lib/mappers/teams';
@@ -5,6 +6,8 @@ import { memberFromRow } from '@/lib/mappers/members';
 import { periodFromRow } from '@/lib/mappers/periods';
 import { goalFromRow } from '@/lib/mappers/goals';
 import { MyGoalsClient } from './my-goals-client';
+
+export const metadata: Metadata = { title: 'My Goals' };
 
 export default async function MyGoalsPage() {
   const supabase = await createClient();

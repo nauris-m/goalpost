@@ -1,7 +1,10 @@
+import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/supabase/current-user';
 import { activityEventFromRow } from '@/lib/mappers/activity-events';
 import { NotificationsClient } from './notifications-client';
+
+export const metadata: Metadata = { title: 'Notifications' };
 
 export default async function NotificationsPage() {
   const supabase = await createClient();

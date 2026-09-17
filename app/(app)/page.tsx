@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 import { createClient } from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/supabase/current-user';
@@ -8,6 +9,8 @@ import { goalFromRow } from '@/lib/mappers/goals';
 import { objectiveFromRow } from '@/lib/mappers/objectives';
 import { keyResultFromRow } from '@/lib/mappers/key-results';
 import { OverviewClient } from './overview-client';
+
+export const metadata: Metadata = { title: 'Overview' };
 
 export default async function OverviewPage() {
   const supabase = await createClient();

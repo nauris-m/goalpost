@@ -1,8 +1,11 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
 import { teamFromRow } from '@/lib/mappers/teams';
 import { periodFromRow } from '@/lib/mappers/periods';
+
+export const metadata: Metadata = { title: 'Period' };
 
 export default async function PeriodGoalsPage({ params }: { params: Promise<{ teamId: string; periodId: string }> }) {
   const { teamId, periodId } = await params;

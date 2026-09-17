@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import { createClient } from '@/lib/supabase/server';
@@ -5,6 +6,8 @@ import { getCurrentUser } from '@/lib/supabase/current-user';
 import { memberFromRow } from '@/lib/mappers/members';
 import { teamFromRow } from '@/lib/mappers/teams';
 import { TeamDetailClient } from './team-detail-client';
+
+export const metadata: Metadata = { title: 'Team' };
 
 export default async function TeamDetailPage({ params }: { params: Promise<{ teamId: string }> }) {
   const { teamId } = await params;

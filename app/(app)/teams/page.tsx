@@ -1,9 +1,12 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Plus, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { createClient } from '@/lib/supabase/server';
 import { getCurrentUser } from '@/lib/supabase/current-user';
 import { teamFromRow } from '@/lib/mappers/teams';
+
+export const metadata: Metadata = { title: 'Teams' };
 
 export default async function TeamsListPage() {
   const supabase = await createClient();

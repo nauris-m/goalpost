@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Input } from '@/components/ui/input';
+import { MemberAvatar } from '@/components/shared/member-avatar';
 import type { MemberView } from '@/lib/types/domain';
 import { DashboardCard } from './dashboard-card';
 
@@ -62,14 +63,12 @@ export function MemberRosterCard({ rows }: { rows: MemberRosterRow[] }) {
           {filteredRows.map(({ member, completion, goalCount }) => (
             <li key={member.id}>
               <Link href={`/my-goals?memberId=${member.id}`} className="flex items-center gap-3 px-5 py-3 hover:bg-accent/50">
-                <span className="flex size-8 shrink-0 items-center justify-center overflow-hidden rounded-full bg-accent text-xs font-semibold text-accent-foreground">
-                  {member.avatarUrl ? (
-                    // eslint-disable-next-line @next/next/no-img-element
-                    <img src={member.avatarUrl} alt={member.name} className="size-full object-cover" />
-                  ) : (
-                    member.initial
-                  )}
-                </span>
+                <MemberAvatar
+                  name={member.name}
+                  initial={member.initial}
+                  avatarUrl={member.avatarUrl}
+                  className="size-8 text-xs"
+                />
                 <span className="min-w-0 flex-1">
                   <span className="flex items-center justify-between gap-2">
                     <span className="truncate text-sm font-medium text-foreground">{member.name}</span>

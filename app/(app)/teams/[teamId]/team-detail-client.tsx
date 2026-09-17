@@ -22,17 +22,18 @@ import {
   AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { AddMembersStep } from '@/components/team-setup/add-members-step';
+import { MemberAvatar } from '@/components/shared/member-avatar';
 import { useDeleteTeamMutation, useTeamsQuery, useUpdateTeamMutation } from '@/lib/queries/use-teams';
 import { useAssignMemberToTeamMutation, useMembersQuery, useUpdateMemberMutation } from '@/lib/queries/use-members';
 import { useLogActivity } from '@/lib/queries/use-notifications';
-import type { AuthUser, Member, Team } from '@/lib/types/domain';
+import type { AuthUser, Member, MemberView, Team } from '@/lib/types/domain';
 
 function MemberRow({
   member,
   currentUser,
   team,
 }: {
-  member: Member;
+  member: MemberView;
   currentUser: AuthUser;
   team: Team;
 }) {
@@ -113,9 +114,7 @@ function MemberRow({
 
   return (
     <li className="flex items-center gap-3 px-5 py-3">
-      <span className="flex size-9 shrink-0 items-center justify-center rounded-full bg-accent text-sm font-semibold text-accent-foreground">
-        {member.name.charAt(0).toUpperCase()}
-      </span>
+      <MemberAvatar name={member.name} initial={member.initial} avatarUrl={member.avatarUrl} />
       <span className="min-w-0 flex-1">
         <span className="flex items-center gap-2">
           <span className="truncate text-sm font-medium text-foreground">{member.name}</span>
