@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { Bell, Flag, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ThemeToggleButton } from './theme-toggle-button';
-import { UserMenu } from './user-menu';
 import { useUnreadNotificationCount } from '@/lib/queries/use-notifications';
 import type { AuthUser } from '@/lib/types/domain';
 
@@ -33,7 +32,6 @@ export function Topbar({ currentUser, onMenuToggle }: { currentUser: AuthUser; o
           <Bell className="size-4" />
           {unreadCount > 0 && <span className="absolute right-1.5 top-1.5 flex size-2 rounded-full bg-destructive" />}
         </Button>
-        <UserMenu currentUser={currentUser} />
       </div>
     </header>
   );

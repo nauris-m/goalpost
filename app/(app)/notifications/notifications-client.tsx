@@ -96,7 +96,7 @@ export function NotificationsClient({ currentUser, initialEvents }: { currentUse
         )}
       </div>
 
-      <Tabs defaultValue="others">
+      <Tabs defaultValue="mine">
         <TabsList>
           <TabsTrigger value="others">
             By others{unreadIds.size > 0 && ` (${unreadIds.size})`}
